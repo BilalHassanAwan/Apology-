@@ -1,1 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Apology to My Teacher</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Sacramento&display=swap');
 
+    body {
+      margin: 0;
+      padding: 0;
+      background: radial-gradient(circle at center, #0d0d0d, #000);
+      font-family: 'Sacramento', cursive;
+      color: #0ff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .container {
+      max-width: 900px;
+      padding: 30px;
+      border: 2px solid #0ff;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.03);
+      box-shadow: 0 0 30px #0ff, 0 0 60px #0ff inset;
+      animation: glow 3s ease-in-out infinite alternate;
+    }
+
+    @keyframes glow {
+      0% {
+        box-shadow: 0 0 20px #0ff, 0 0 40px #0ff inset;
+      }
+      100% {
+        box-shadow: 0 0 40px #0ff, 0 0 80px #0ff inset;
+      }
+    }
+
+    .heading {
+      font-family: 'Orbitron', sans-serif;
+      text-align: center;
+      font-size: 2.5em;
+      margin-bottom: 20px;
+      text-shadow: 0 0 10px #0ff;
+    }
+
+    .typing-text {
+      font-size: 1.8em;
+      line-height: 1.6;
+      white-space: pre-wrap;
+      overflow: hidden;
+      border-right: 2px solid #0ff;
+      min-height: 200px;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 1.1em;
+      color: #aaa;
+      font-family: 'Orbitron', sans-serif;
+      text-shadow: 0 0 5px #0ff;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="heading">Dear Respected Teacher,</div>
+    <div class="typing-text" id="typingText"></div>
+    <div class="footer">Thank you for everything, Sir.</div>
+  </div>
+
+  <script>
+    const text = `I want to sincerely apologize for my behavior and any pain or concern I may have caused you.
+
+Your guidance has always been a light in my path, and I realize now more than ever how much your presence matters.
+
+Please accept my heartfelt apology. I’m truly sorry.
+
+With full respect,
+A Student Who Wants To Improve.`;
+
+    let index = 0;
+    const speed = 50; // typing speed in ms
+    const typingArea = document.getElementById("typingText");
+
+    function typeText() {
+      if (index < text.length) {
+        typingArea.innerHTML += text.charAt(index);
+        index++;
+        setTimeout(typeText, speed);
+      }
+    }
+
+    window.onload = typeText;
+  </script>
+</body>
+</html>
